@@ -1,0 +1,20 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import type { Locales } from '@/types/i18n'
+
+export const getStaticPaths = () => {
+  const langs = [undefined, 'en']
+  const paths = langs.map((lang) => {
+    return { params: { lang } }
+  })
+
+  return paths
+}
+
+const lang = Astro.currentLocale as Locales
+const availableLocales: Locales[] = ['en', 'ja']
+---
+
+<Layout title="TO_SET" description="TO_SET" {availableLocales} {lang}>
+  <h1>Astro</h1>
+</Layout>

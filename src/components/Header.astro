@@ -1,0 +1,22 @@
+---
+import { type Locales } from '@/types/i18n'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+
+interface Props {
+  availableLocales: Locales[]
+  lang: Locales
+}
+
+const { availableLocales, lang } = Astro.props
+---
+
+<header>
+  <div class="flex gap-4">
+    <a href={getRelativeLocaleUrl('ja', '/')}>
+      {lang === 'ja' ? '日本語' : 'Japanese'}
+    </a>
+    <a href={getRelativeLocaleUrl('en', '/')}>
+      {lang === 'ja' ? '英語' : 'English'}
+    </a>
+  </div>
+</header>
